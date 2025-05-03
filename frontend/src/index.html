@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Frontend</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root>
+    <div class="conversion-container">
+      <input type="file" (change)="onFileSelected($event)">
+      
+      <button (click)="convertDocument()" 
+              [disabled]="!selectedFile || conversionStatus === 'processing'">
+        Convertir text numerique
+      </button>
+    
+      <div *ngIf="conversionStatus === 'processing'">
+        Conversion en cours...
+      </div>
+    
+      <a *ngIf="downloadLink" 
+         [href]="downloadLink" 
+         download 
+         class="download-link">
+        Télécharger le document converti
+      </a>
+    </div>
+    
+  </app-root>
+</body>
+</html>

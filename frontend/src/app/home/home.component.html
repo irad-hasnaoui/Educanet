@@ -1,0 +1,17 @@
+<section>
+    <h2>Convert Text Document to Numeric Image</h2>
+    <form>
+      <input type="file" accept=".txt" (change)="onFileSelected($event)" />
+    </form>
+  
+    <div *ngIf="error" style="color: red;">{{ error }}</div>
+  
+    <div *ngIf="numericValue !== null">
+      <p>Numeric value: <strong>{{ numericValue }}</strong></p>
+      <div *ngIf="numericImage">
+        <h3>Numeric Image:</h3>
+        <img [src]="numericImage" alt="Numeric SVG" />
+      </div>
+    </div>
+  </section>
+  

@@ -1,0 +1,25 @@
+section {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+    font-family: Arial, sans-serif;
+  }
+  input[type="file"] {
+    margin-bottom: 1rem;
+  }
+  table {
+    border-collapse: collapse;
+    background: #fff;
+  }
+  th {
+    background: #f0f0f0;
+  }
+  pre {
+    font-family: inherit;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  

@@ -1,0 +1,13 @@
+<h1>Text Document to Numeric Converter</h1>
+<section>
+  <input type="file" accept=".txt" (change)="onFileSelected($event)" />
+
+  <div *ngIf="error" style="color: red; margin-top: 1rem;">
+    {{ error }}
+  </div>
+
+  <div *ngIf="numericValue !== null" style="margin-top: 1rem;">
+    <strong>Converted Number:</strong> {{ numericValue }}
+  </div>
+</section>
+

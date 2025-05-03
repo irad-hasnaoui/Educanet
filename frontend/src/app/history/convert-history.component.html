@@ -1,0 +1,37 @@
+<section>
+    <h2>Convert Text Document to Number</h2>
+    <input type="file" accept=".txt" (change)="onFileSelected($event)" />
+    <div *ngIf="error" style="color: red; margin-top: 1rem;">{{ error }}</div>
+    <div *ngIf="numericValue !== null">
+      <p>Converted number: <strong>{{ numericValue }}</strong></p>
+    </div>
+  
+    <h3 style="margin-top: 2rem;">Conversion History</h3>
+    <table *ngIf="history.length > 0" border="1" cellpadding="6" style="width: 100%; margin-top: 1rem;">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Original Text</th>
+          <th>Numeric Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of history">
+          <td>{{ item.timestamp | date:'short' }}</td>
+          <td><pre style="margin:0;">{{ item.originalText }}</pre></td>
+          <td>
+            <ng-container *ngIf="item.numericValue !== null; else invalid">
+              {{ item.numericValue }}
+            </ng-container>
+            <ng-template #invalid>
+              <span style="color: #b00;">Invalid</span>
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="history.length === 0" style="color: #888; margin-top: 1rem;">
+      No conversions yet.
+    </div>
+  </section>
+  
